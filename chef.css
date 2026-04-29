@@ -1,0 +1,29 @@
+
+
+.chefs-section { padding:50px 30px; text-align:center; background:white; }
+.section-title { font-size:28px; font-weight:bold; border-left:5px solid #e63946; padding-left:10px; display:inline-block; margin-bottom:40px; }
+
+.chefs-slider { position:relative; display:flex; align-items:center; justify-content:center; }
+.chefs-container { display:flex; gap:20px; overflow:hidden; width:90%; scroll-behavior:smooth; }
+
+.chef-item { text-align:center; min-width:200px; }
+.chef-item img { width:150px; height:150px; border-radius:50%; object-fit:cover; }
+.chef-name { font-size:16px; font-weight:bold; margin-top:10px; }
+.chef-specialty { font-size:14px; color:#555; margin-top:5px; }
+
+/* NAV BUTTONS */
+.chefs-slider button {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#e63946; border:none; color:white;
+  font-size:24px; width:40px; height:40px; border-radius:50%; cursor:pointer;
+}
+.chefs-slider .prev { left:-20px; }
+.chefs-slider .next { right:-20px; }
+
+/* RESPONSIVE */
+@media(min-width:993px){ .chef-item { min-width:calc((100% - 40px)/3); } }
+@media(max-width:992px) and (min-width:577px){ .chef-item { min-width:calc((100% - 15px)/2); } }
+@media(max-width:576px){ .chef-item { min-width:100%; } }
+

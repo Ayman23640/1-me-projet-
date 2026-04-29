@@ -1,0 +1,374 @@
+/* ============================================
+   NAVBAR STYLES - RESPONSIVE DESIGN
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 15px 5%;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Brand/Logo */
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.nav-brand:hover {
+    opacity: 0.8;
+}
+
+.logo-box {
+    background: linear-gradient(135deg, #c01e14 0%, #8b0000 100%);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+}
+
+.brand-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #c01e14;
+    letter-spacing: 1px;
+}
+
+/* Navigation Menu Container */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+    flex: 1;
+}
+
+.nav-menu li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #c01e14, #ff4444);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #ff5722;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* Auth Buttons Container */
+.auth-btns {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+/* Button Styles */
+.btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+}
+
+.btn-login {
+    border: 2px solid #c01e14;
+    color: white;
+    background: transparent;
+}
+
+.btn-login:hover {
+    background: #c01e14;
+    transform: translateY(-2px);
+}
+
+.btn-signup {
+    background: linear-gradient(135deg, #c01e14 0%, #8b0000 100%);
+    color: white;
+}
+
+.btn-signup:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(192, 30, 20, 0.3);
+}
+
+.btn-logout {
+    background: #d32f2f;
+    color: white;
+}
+
+.btn-logout:hover {
+    background: #b71c1c;
+    transform: translateY(-2px);
+}
+
+/* Burger Menu Icon */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    justify-content: center;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.burger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ============================================
+   TABLET SCREENS (850px and below)
+   ============================================ */
+@media (max-width: 850px) {
+    .navbar {
+        padding: 12px 4%;
+    }
+
+    .nav-brand {
+        gap: 8px;
+    }
+
+    .logo-box {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .brand-name {
+        font-size: 1.2rem;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: rgba(0, 0, 0, 0.98);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0;
+        padding-top: 100px;
+        padding-left: 20px;
+        padding-right: 20px;
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        z-index: 999;
+        overflow-y: auto;
+        backdrop-filter: blur(5px);
+    }
+
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    .nav-menu li {
+        width: 100%;
+        justify-content: center;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-menu a {
+        font-size: 18px;
+        font-weight: 600;
+        padding: 15px 20px;
+        display: block;
+        text-align: center;
+        animation: slideInLeft 0.5s ease forwards;
+    }
+
+    .nav-menu li:nth-child(2) a { animation-delay: 0.1s; }
+    .nav-menu li:nth-child(3) a { animation-delay: 0.2s; }
+    .nav-menu li:nth-child(4) a { animation-delay: 0.3s; }
+
+    .nav-menu a::after {
+        display: none;
+    }
+
+    .nav-menu a:hover {
+        color: #ff5722;
+        background: rgba(255, 87, 34, 0.1);
+        border-radius: 8px;
+    }
+
+    .auth-btns {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 2px solid rgba(192, 30, 20, 0.5);
+        gap: 12px;
+        width: 90%;
+        margin-left: 0;
+    }
+
+    .auth-btns span {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        color: #aaa;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 16px;
+    }
+
+    .btn-login {
+        border: 2px solid #c01e14;
+    }
+
+    .btn-signup {
+        background: linear-gradient(135deg, #c01e14 0%, #8b0000 100%);
+    }
+
+    .btn-logout {
+        background: #d32f2f;
+    }
+}
+
+/* ============================================
+   MOBILE PHONES (600px and below)
+   ============================================ */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 10px 3%;
+    }
+
+    .logo-box {
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+
+    .brand-name {
+        font-size: 1rem;
+    }
+
+    .burger {
+        width: 28px;
+        height: 22px;
+    }
+
+    .burger span {
+        width: 22px;
+        height: 2.5px;
+    }
+
+    .nav-menu {
+        top: 50px;
+        padding-top: 80px;
+    }
+
+    .nav-menu a {
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 10px 14px;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
